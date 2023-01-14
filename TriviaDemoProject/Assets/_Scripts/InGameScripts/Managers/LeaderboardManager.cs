@@ -17,6 +17,8 @@ public class LeaderboardManager : MonoBehaviour
 
     [SerializeField] [Range(1, 10)] private int _pageNumber;
 
+    [SerializeField] private bool _isDone = false;
+
     #endregion
 
     #region References
@@ -25,10 +27,6 @@ public class LeaderboardManager : MonoBehaviour
 
     #endregion
 
-    private void Start()
-    {
-        GetPagesData();
-    }
 
     public async void GetPagesData()
     {
@@ -38,19 +36,26 @@ public class LeaderboardManager : MonoBehaviour
             var page = $"https://magegamessite.web.app/case1/leaderboard_page_{i}.json";
             var httpClient = new HttpClient(new JsonSerializationOption());
             _pages[i] = await httpClient.GetRequest<LeaderboardPages>(page);
-            SendData(_pages[i]);
         }
-        print("End Function");
+        _isDone = true;
+        EventManager.GetEnableObjectsMethod(GetDataLength());
+        EventManager.SetLeaderboardDataMethod(_isDone,_pages);
     }
 
-    private void SendData(LeaderboardPages page)
+    private LeaderboardPages[] GetPage() => !_isDone ? null : _pages;
+
+    private int GetDataLength()
     {
-        foreach (var data in page.data)
+        if (!_isDone) return 0;
+        var dataLength = 0;
+        foreach (var t in _pages)
         {
-            print(data.nickname);
+            var length = t.data.Length;
+            dataLength += length;
         }
-
+        return dataLength;
     }
+
 
 }
 
