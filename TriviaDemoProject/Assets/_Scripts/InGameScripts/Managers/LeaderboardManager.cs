@@ -19,11 +19,15 @@ public class LeaderboardManager : MonoBehaviour
 
     [SerializeField] private bool _isDone = false;
 
+    [SerializeField] private PlayerData _playerData;
+
     #endregion
 
     #region References
 
     private LeaderboardPages[] _pages;
+
+    private Data _myData;
 
     #endregion
     public async void GetPagesData()
@@ -36,7 +40,7 @@ public class LeaderboardManager : MonoBehaviour
             _pages[i] = await httpClient.GetRequest<LeaderboardPages>(page);
         }
         _isDone = true;
-        EventManager.InitializeMyDataMethod(_pages);
+        InitializePlayerData();
         EventManager.GetEnableObjectsMethod(GetDataLength());
         EventManager.SetLeaderboardDataMethod(_isDone, _pages);
     }
@@ -55,5 +59,16 @@ public class LeaderboardManager : MonoBehaviour
         return dataLength;
     }
 
+    private void InitializePlayerData()
+    {
+        _myData = new Data
+        {
+            nickname = _playerData.PlayerName,
+            rank = 1,
+            isReal = true,
+            score = _playerData.TotalScore
+        };
+        _pages[1].data[^1] = _myData;
+    }
 }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class EventManager : MonoSingleton<EventManager>
+public class EventManager 
 {
     #region PoolEvents
 
@@ -25,7 +25,6 @@ public class EventManager : MonoSingleton<EventManager>
 
 
     #endregion
-
 
 
     #region LeaderBoard Events
@@ -51,15 +50,4 @@ public class EventManager : MonoSingleton<EventManager>
     #endregion
 
 
-    #region MyDataEvents
-
-    public delegate void InitializeMyData(LeaderboardPages[] pages);
-    public static event InitializeMyData OnInitializeMyData;
-    public static void InitializeMyDataMethod(LeaderboardPages[] pages)
-    {
-        OnInitializeMyData?.Invoke(pages);
-    }
-    //***********************************************************//
-
-    #endregion
 }

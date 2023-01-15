@@ -10,14 +10,12 @@ public class MainView : MonoBehaviour
 
     #endregion
 
-
     #region Serialize
 
     [SerializeField] private GameObject _leaderboardPanel;
 
-
     #endregion
-    
+
     public void EnableLbPanel()
     {
         _previousLbPos = _leaderboardPanel.transform.localPosition;
