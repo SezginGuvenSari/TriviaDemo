@@ -613,6 +613,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _personData: {fileID: 3961292362455746338}
+  _fakeSprite: {fileID: 21300018, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  _realSprite: {fileID: 0}
 --- !u!114 &3961292362455746338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -628,6 +630,7 @@ MonoBehaviour:
   _rank: {fileID: 4684491389810913815}
   _score: {fileID: 4684491388091375524}
   _nickName: {fileID: 4684491387815689856}
+  _isReal: 0
 --- !u!1 &6328474234826949353
 GameObject:
   m_ObjectHideFlags: 0

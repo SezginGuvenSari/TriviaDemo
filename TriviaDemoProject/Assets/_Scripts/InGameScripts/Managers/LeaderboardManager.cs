@@ -26,8 +26,6 @@ public class LeaderboardManager : MonoBehaviour
     private LeaderboardPages[] _pages;
 
     #endregion
-
-
     public async void GetPagesData()
     {
         _pages = new LeaderboardPages[_pageNumber];
@@ -38,8 +36,9 @@ public class LeaderboardManager : MonoBehaviour
             _pages[i] = await httpClient.GetRequest<LeaderboardPages>(page);
         }
         _isDone = true;
+        EventManager.InitializeMyDataMethod(_pages);
         EventManager.GetEnableObjectsMethod(GetDataLength());
-        EventManager.SetLeaderboardDataMethod(_isDone,_pages);
+        EventManager.SetLeaderboardDataMethod(_isDone, _pages);
     }
 
     private LeaderboardPages[] GetPage() => !_isDone ? null : _pages;
@@ -50,12 +49,11 @@ public class LeaderboardManager : MonoBehaviour
         var dataLength = 0;
         foreach (var t in _pages)
         {
-            var length = t.data.Length;
+            var length = t.data.Count;
             dataLength += length;
         }
         return dataLength;
     }
-
 
 }
 

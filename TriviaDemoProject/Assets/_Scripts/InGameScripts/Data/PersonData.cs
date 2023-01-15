@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class PersonData : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class PersonData : MonoBehaviour
     [SerializeField] private TMP_Text _score;
 
     [SerializeField] private TMP_Text _nickName;
+
+    [SerializeField] private bool _isReal;
 
     #endregion
 
@@ -36,5 +39,17 @@ public class PersonData : MonoBehaviour
         set => _nickName = value;
     }
 
+    public bool IsReal
+    {
+        get => _isReal;
+        set => _isReal = value;
+    }
+
     #endregion
+
+    private void Start()
+    {
+        if (!_isReal) return;
+        GetComponent<Image>().color = Color.red;
+    }
 }

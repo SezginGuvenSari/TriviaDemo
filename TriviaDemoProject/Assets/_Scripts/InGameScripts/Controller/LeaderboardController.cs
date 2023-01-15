@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LeaderboardController : MonoBehaviour
 {
     #region References
 
     private List<PersonController> _personList;
+
+    private List<Data> _listData;
 
     #endregion
 
@@ -23,24 +26,21 @@ public class LeaderboardController : MonoBehaviour
     {
         if (!isDone) return;
 
-        SetDataList();
-        int counter = 0;
-        foreach (var t in pages)
+        _listData = new List<Data>();
+        SetContentData();
+        SortAlgorithm.SortAllData(GetListOfData(pages), 0, _listData.Count - 1);
+        for (int i = 0; i < _listData.Count; i++)
         {
-            for (var j = 0; j < t.data.Length; j++)
-            {
-                var nickname = _personList[counter].PersonData.NickName;
-                var rank = _personList[counter].PersonData.Rank;
-                var score = _personList[counter].PersonData.Score;
-                nickname.text = t.data[j].nickname;
-                rank.text = t.data[j].rank.ToString();
-                score.text = t.data[j].score.ToString();
-                counter++;
-            }
+            var nickname = _personList[i].PersonData.NickName;
+            var rank = _personList[i].PersonData.Rank;
+            var score = _personList[i].PersonData.Score;
+            nickname.text = _listData[i].nickname;
+            rank.text = (i + 1).ToString();
+            score.text = _listData[i].score.ToString();
+            _personList[i].PersonData.IsReal = _listData[i].isReal; ;
         }
     }
-
-    private void SetDataList()
+    private void SetContentData()
     {
         _personList = new List<PersonController>();
         foreach (Transform t in transform)
@@ -49,4 +49,16 @@ public class LeaderboardController : MonoBehaviour
             _personList.Add(data);
         }
     }
+    private List<Data> GetListOfData(LeaderboardPages[] pages)
+    {
+        foreach (var t in pages)
+        {
+            for (int i = 0; i < t.data.Count; i++)
+            {
+                _listData.Add(t.data[i]);
+            }
+        }
+        return _listData;
+    }
+
 }

@@ -206,10 +206,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 680785546}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 2123893344}
+        m_TargetAssemblyTypeName: ViewManager, Assembly-CSharp
+        m_MethodName: DisableLbPanel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -904,6 +904,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535767223}
   m_CullTransparentMesh: 1
+--- !u!1 &586493663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 586493664}
+  - component: {fileID: 586493665}
+  m_Layer: 0
+  m_Name: PlayerData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &586493664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586493663}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2053183693}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &586493665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586493663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7fc5e5c936631842b0d61147407ad26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _totalScore: 30
+  _myName: Me
 --- !u!1 &621827290
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,6 +962,7 @@ GameObject:
   - component: {fileID: 621827292}
   - component: {fileID: 621827293}
   - component: {fileID: 621827294}
+  - component: {fileID: 621827295}
   m_Layer: 5
   m_Name: Lb_Contents
   m_TagString: Untagged
@@ -995,6 +1042,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!114 &621827295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621827290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5906474f838598d449ab2255c964d6a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rectTransform: {fileID: 837314838}
+  _resizeRatio:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.8711846
+      inSlope: -0.42811993
+      outSlope: -0.42811993
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.281851
+      value: 0.75051856
+      inSlope: 0.017374784
+      outSlope: 0.017374784
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.20648819
+      outWeight: 0.14366457
+    - serializedVersion: 3
+      time: 1.0038002
+      value: 0.6099924
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.14919195
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &673040153
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,7 +1194,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.0021973}
+  m_AnchoredPosition: {x: 0, y: -2342}
   m_SizeDelta: {x: 1080, y: 2337.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &680785549
@@ -1442,7 +1535,19 @@ MonoBehaviour:
   m_VerticalScrollbarSpacing: -3
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 621827295}
+        m_TargetAssemblyTypeName: ScrollContent, Assembly-CSharp
+        m_MethodName: ResizeObjects
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1022566132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1528,7 +1633,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pools:
   - _dataPrefab: {fileID: 4684491389871673445, guid: 1c964652d0c1463488f9205c5119a847, type: 3}
-    _poolSize: 20
+    _poolSize: 21
     _dataT: {fileID: 621827291}
 --- !u!1 &1363667379
 GameObject:
@@ -1542,6 +1647,7 @@ GameObject:
   - component: {fileID: 1363667383}
   - component: {fileID: 1363667382}
   - component: {fileID: 1363667381}
+  - component: {fileID: 1363667384}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -1652,6 +1758,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363667379}
   m_CullTransparentMesh: 1
+--- !u!95 &1363667384
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363667379}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5523b6ad852b29d4d8a47f1bb8830b3c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1384682299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,7 +1809,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pageNumber: 2
   _isDone: 0
-  _dataContent: {fileID: 621827291}
 --- !u!4 &1384682301
 Transform:
   m_ObjectHideFlags: 0
@@ -2116,9 +2241,56 @@ Transform:
   - {fileID: 1384682301}
   - {fileID: 1100924270}
   - {fileID: 815955787}
+  - {fileID: 2123893343}
+  - {fileID: 586493664}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2123893342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2123893343}
+  - component: {fileID: 2123893344}
+  m_Layer: 0
+  m_Name: ViewManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2123893343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123893342}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2053183693}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2123893344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123893342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec118e7032612243aa7b4aff81cc53e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _leaderboardPanel: {fileID: 680785546}
 --- !u!1 &2134810962
 GameObject:
   m_ObjectHideFlags: 0
@@ -2203,10 +2375,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 680785546}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1384682300}
+        m_TargetAssemblyTypeName: LeaderboardManager, Assembly-CSharp
+        m_MethodName: GetPagesData
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2215,9 +2387,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1384682300}
-        m_TargetAssemblyTypeName: LeaderboardManager, Assembly-CSharp
-        m_MethodName: GetPagesData
+      - m_Target: {fileID: 2123893344}
+        m_TargetAssemblyTypeName: ViewManager, Assembly-CSharp
+        m_MethodName: EnableLbPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

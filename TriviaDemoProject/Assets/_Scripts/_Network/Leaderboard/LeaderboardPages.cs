@@ -8,7 +8,7 @@ public class LeaderboardPages : MonoBehaviour
 
     public int page;
     public bool is_last;
-    public Data[] data;
+    public List<Data> data;
 
     #endregion
 
@@ -19,4 +19,5 @@ public struct Data
     public int rank;
     public string nickname;
     public int score;
+    public bool isReal;
 }

@@ -12,7 +12,7 @@ public class PersonController : MonoBehaviour
 
     #region Properties
 
-  
+
     public PersonData PersonData
     {
         get => _personData;

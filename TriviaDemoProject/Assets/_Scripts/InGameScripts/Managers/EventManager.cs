@@ -49,4 +49,17 @@ public class EventManager : MonoSingleton<EventManager>
 
 
     #endregion
+
+
+    #region MyDataEvents
+
+    public delegate void InitializeMyData(LeaderboardPages[] pages);
+    public static event InitializeMyData OnInitializeMyData;
+    public static void InitializeMyDataMethod(LeaderboardPages[] pages)
+    {
+        OnInitializeMyData?.Invoke(pages);
+    }
+    //***********************************************************//
+
+    #endregion
 }
