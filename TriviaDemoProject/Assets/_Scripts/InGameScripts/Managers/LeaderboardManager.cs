@@ -30,6 +30,7 @@ public class LeaderboardManager : MonoBehaviour
     private Data _myData;
 
     #endregion
+
     public async void GetPagesData()
     {
         _pages = new LeaderboardPages[_pageNumber];
@@ -60,7 +61,7 @@ public class LeaderboardManager : MonoBehaviour
     }
 
     private void InitializePlayerData()
-    {
+    { 
         _myData = new Data
         {
             nickname = _playerData.PlayerName,
@@ -68,7 +69,7 @@ public class LeaderboardManager : MonoBehaviour
             isReal = true,
             score = _playerData.TotalScore
         };
-        _pages[1].data[^1] = _myData;
+        _pages[1].data.Add(_myData);
     }
 }
 

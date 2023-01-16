@@ -16,4 +16,6 @@ public class LevelManager : MonoSingleton<LevelManager>
         var currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex - 1);
     }
+
+    public void GameQuit() => Application.Quit();
 }

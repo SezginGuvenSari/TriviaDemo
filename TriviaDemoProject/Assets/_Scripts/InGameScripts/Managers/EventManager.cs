@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class EventManager 
+public class EventManager
 {
     #region PoolEvents
 
@@ -44,8 +44,6 @@ public class EventManager
     {
         OnSetLeaderboardData?.Invoke(isDone, pages);
     }
-
-
 
     #endregion
 
