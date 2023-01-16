@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ae020671f7619fb4eaa7b78e2083664f
+guid: bedc412ad021d2a4eb8f85fc31b33b02
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,9 +9,9 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Starborn
+  - Mermaid Babies
   fallbackFontReferences:
-  - {fileID: 12800000, guid: 4170f6d81be552044911c42d360addbd, type: 3}
+  - {fileID: 12800000, guid: 884d2a4f434f29c46b03745efeefbe3f, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
