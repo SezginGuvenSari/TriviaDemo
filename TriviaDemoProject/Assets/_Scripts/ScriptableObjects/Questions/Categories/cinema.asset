@@ -21,7 +21,7 @@ MonoBehaviour:
     - C) Titanic
     - "D) Benim Ad\u0131m \nK\u0131rm\u0131z\u0131"
     answer: D
-    isCompleted: 1
+    isCompleted: 0
   - category: cinema
     question: "Hangisi bir film de\u011Fildir?"
     choices:
@@ -30,4 +30,5 @@ MonoBehaviour:
     - C) Titanic
     - "D) Benim Ad\u0131m \nK\u0131rm\u0131z\u0131"
     answer: D
-    isCompleted: 1
+    isCompleted: 0
+  isCompleted: 0

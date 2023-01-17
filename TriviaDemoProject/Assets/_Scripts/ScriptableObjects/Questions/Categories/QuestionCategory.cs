@@ -12,18 +12,4 @@ public class QuestionCategory : ScriptableObject
 
     #endregion
 
-    #region Struct
-
-    [System.Serializable]
-    public struct CategoryData
-    {
-        public string Question;
-
-        public List<string> Choices;
-
-        public string Answer;
-    }
-
-    #endregion
-
 }

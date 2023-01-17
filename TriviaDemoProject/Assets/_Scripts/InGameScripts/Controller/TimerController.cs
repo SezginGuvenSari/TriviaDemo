@@ -9,14 +9,13 @@ public class TimerController : MonoBehaviour
 {
     #region References
 
-    public bool _stopTimer = false;
+    private bool _stopTimer = false;
 
     private float _currentTime = 20f;
 
     private bool _timeOut = false;
 
     #endregion
-
 
     #region Serialize
 

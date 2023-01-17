@@ -53,6 +53,7 @@ public class GameView : MonoBehaviour
         }
         else SetQuestionData();
     }
+
     private void SetChoicesData(Questions.QuestionData data)
     {
         for (var i = 0; i < _choices.Count; i++)

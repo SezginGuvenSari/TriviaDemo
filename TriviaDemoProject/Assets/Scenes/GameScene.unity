@@ -167,9 +167,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cafc2ceae5463b548af05603bb91a35f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentQuestionData:
+    category: 
+    question: 
+    choices: []
+    answer: 
+    isCompleted: 0
   _questions: {fileID: 11400000, guid: f8df2ac0324654f44ab5180d2efdfefe, type: 2}
-  _correctText: {fileID: 0}
-  _wrongText: {fileID: 0}
+  _correctText: {fileID: 289962423}
+  _wrongText: {fileID: 1432533354}
+  _questionManager: {fileID: 340082007}
 --- !u!1 &223377454
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,8 +1018,6 @@ MonoBehaviour:
   - {fileID: 424372811}
   - {fileID: 348145655}
   _parentChoices: {fileID: 733658066}
-  _correctText: {fileID: 289962423}
-  _wrongText: {fileID: 1432533354}
 --- !u!1001 &985853996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1464,7 +1469,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b58ace2534d8642b13acb95909404d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stopTimer: 0
   _timeLeft: 20
   _progressImage: {fileID: 1307719418}
   _timerText: {fileID: 1946863913}

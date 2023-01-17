@@ -8,9 +8,9 @@ public class QuestionManager : MonoBehaviour
 
     #region References
 
-    public int _categoryIndex;
+    private int _categoryIndex;
 
-    public int _questionIndex;
+    private int _questionIndex;
 
     #endregion
 
@@ -19,6 +19,14 @@ public class QuestionManager : MonoBehaviour
 
     [SerializeField] private Questions _questions;
 
+
+    #endregion
+
+    #region Properties
+
+    public int CategoryIndex => _categoryIndex;
+
+    public int QuestionIndex => _questionIndex;
 
     #endregion
 

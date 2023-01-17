@@ -8,7 +8,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     #region References
 
-    public Questions.QuestionData _currentQuestionData;
+    private Questions.QuestionData _currentQuestionData;
 
     #endregion
 
@@ -19,6 +19,8 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] private Transform _correctText;
 
     [SerializeField] private Transform _wrongText;
+
+    [SerializeField] private QuestionManager _questionManager;
 
     #endregion
 
@@ -31,6 +33,7 @@ public class GameManager : MonoSingleton<GameManager>
     }
 
     #endregion
+
 
     public bool IsQuestionsCompleted()
     {
@@ -56,11 +59,12 @@ public class GameManager : MonoSingleton<GameManager>
 
     public async void CorrectAnswerAysnc()
     {
-        _currentQuestionData.isCompleted = true;
+       
+        CompletedQuestion();
         EventManager.StopTimerMethod();
         await EventManager.AnimationTextAsyncMethod(_correctText);
         EventManager.CorrectIncrementalScoreMethod();
-        EventManager.SetQuestionDataMethod(); 
+        EventManager.SetQuestionDataMethod();
         EventManager.EnableChoicesMethod();
         EventManager.ResetRemainingTimeMethod();
 
@@ -71,4 +75,11 @@ public class GameManager : MonoSingleton<GameManager>
 
     }
 
+    private void CompletedQuestion()
+    {
+        var categoryIndex = _questionManager.CategoryIndex;
+        var questionIndex = _questionManager.QuestionIndex;
+        _currentQuestionData.isCompleted = true;
+        _questions.Categories[categoryIndex].categoryDataList[questionIndex] = _currentQuestionData;
+    }
 }
