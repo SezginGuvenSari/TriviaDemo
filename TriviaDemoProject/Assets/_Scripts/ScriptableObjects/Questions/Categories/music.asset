@@ -12,4 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d6babb0353c34c49bf415d2b025da80, type: 3}
   m_Name: music
   m_EditorClassIdentifier: 
-  categoryDataList: []
+  categoryDataList:
+  - category: music
+    question: "Hangisi bir m\xFCzik grubu de\u011Fildir?"
+    choices:
+    - A) Pink Floyd
+    - B) Queen
+    - C) Metallica
+    - "D) \nTarkan"
+    answer: D
+    isCompleted: 1
+  - category: music
+    question: "Hangisi bir m\xFCzik grubu de\u011Fildir?"
+    choices:
+    - A) Pink Floyd
+    - B) Queen
+    - C) Metallica
+    - "D) \nTarkan"
+    answer: D
+    isCompleted: 1

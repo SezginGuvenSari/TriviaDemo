@@ -12,4 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d6babb0353c34c49bf415d2b025da80, type: 3}
   m_Name: history
   m_EditorClassIdentifier: 
-  categoryDataList: []
+  categoryDataList:
+  - category: history
+    question: "Hangisi Osmanl\u0131 Padi\u015Fah\u0131 de\u011Fildir?"
+    choices:
+    - A) Fatih Sultan Mehmet
+    - "B) S\xFCleyman Kanuni"
+    - "C) Abd\xFClhamit II"
+    - "D) K\xF6sem \nSultan"
+    answer: D
+    isCompleted: 1
+  - category: history
+    question: "Hangisi Osmanl\u0131 Padi\u015Fah\u0131 de\u011Fildir?"
+    choices:
+    - A) Fatih Sultan Mehmet
+    - "B) S\xFCleyman Kanuni"
+    - "C) Abd\xFClhamit II"
+    - "D) K\xF6sem \nSultan"
+    answer: D
+    isCompleted: 1
+  - category: history
+    question: "Hangisi Osmanl\u0131 Padi\u015Fah\u0131 de\u011Fildir?"
+    choices:
+    - A) Fatih Sultan Mehmet
+    - "B) S\xFCleyman Kanuni"
+    - "C) Abd\xFClhamit II"
+    - "D) K\xF6sem Sultan"
+    answer: D
+    isCompleted: 1

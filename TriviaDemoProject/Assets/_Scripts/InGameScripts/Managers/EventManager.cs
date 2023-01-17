@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Threading.Tasks;
 
 public class EventManager
 {
@@ -48,4 +49,103 @@ public class EventManager
     #endregion
 
 
+    #region QuestionEvents
+
+    public delegate Questions.QuestionData SelectRandomQuestion();
+    public static event SelectRandomQuestion OnSelectRandomQuestion;
+    public static Questions.QuestionData SelectRandomQuestionMethod()
+    {
+        return OnSelectRandomQuestion.Invoke();
+    }
+
+
+    #endregion
+
+
+    #region TimerEvents
+
+    public delegate void StopTimer();
+    public static event StopTimer OnStopTimer;
+    public static void StopTimerMethod()
+    {
+        OnStopTimer?.Invoke();
+    }
+
+    //***********************************************************//
+
+    public delegate void ResetRemainingTime();
+    public static event ResetRemainingTime OnResetRemainingTime;
+    public static void ResetRemainingTimeMethod()
+    {
+        OnResetRemainingTime?.Invoke();
+    }
+
+    #endregion
+
+
+    #region ScoreEvents
+
+    public delegate void CorrectIncrementalScore();
+    public static event CorrectIncrementalScore OnCorrectIncrementalScore;
+    public static void CorrectIncrementalScoreMethod()
+    {
+        OnCorrectIncrementalScore?.Invoke();
+    }
+
+    //***********************************************************//
+
+    public delegate void WrongDecreaseScore();
+    public static event WrongDecreaseScore OnWrongDecreaseScore;
+    public static void WrongDecreaseScoreMethod()
+    {
+        OnWrongDecreaseScore?.Invoke();
+    }
+
+    //***********************************************************//
+
+    public delegate void TimeLatenessDecreaseScore();
+    public static event TimeLatenessDecreaseScore OnTimeLatenessDecreaseScore;
+    public static void TimeLatenessDecreaseScoreMethod()
+    {
+        OnTimeLatenessDecreaseScore?.Invoke();
+    }
+    #endregion
+
+
+    #region ViewEvents
+
+    public delegate void DisableChoices();
+    public static event DisableChoices OnDisableChoices;
+    public static void DisableChoicesMethod()
+    {
+        OnDisableChoices?.Invoke();
+    }
+
+    //***********************************************************//
+
+    public delegate void EnableChoices();
+    public static event EnableChoices OnEnableChoices;
+    public static void EnableChoicesMethod()
+    {
+        OnEnableChoices?.Invoke();
+    }
+
+    //***********************************************************//
+
+    public delegate void SetQuestionData();
+    public static event SetQuestionData OnSetQuestionData;
+    public static void SetQuestionDataMethod()
+    {
+        OnSetQuestionData?.Invoke();
+    }
+
+    //***********************************************************//
+
+    public delegate Task AnimationTextAsync(Transform text);
+    public static event AnimationTextAsync OnAnimationTextAsync;
+    public static Task AnimationTextAsyncMethod(Transform text)
+    {
+        return OnAnimationTextAsync?.Invoke(text);
+    }
+    #endregion
 }

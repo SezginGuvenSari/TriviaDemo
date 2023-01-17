@@ -8,7 +8,9 @@ public class QuestionManager : MonoBehaviour
 
     #region References
 
+    public int _categoryIndex;
 
+    public int _questionIndex;
 
     #endregion
 
@@ -17,8 +19,16 @@ public class QuestionManager : MonoBehaviour
 
     [SerializeField] private Questions _questions;
 
+
     #endregion
 
+    #region OnEnable/OnDisable
+
+    private void OnEnable() => EventManager.OnSelectRandomQuestion += SelectRandomQuestion;
+
+    private void OnDisable() => EventManager.OnSelectRandomQuestion -= SelectRandomQuestion;
+
+    #endregion
 
     private async void Start() => GetQuestions();
 
@@ -53,4 +63,18 @@ public class QuestionManager : MonoBehaviour
             category.categoryDataList.Clear();
         }
     }
+
+    private Questions.QuestionData SelectRandomQuestion()
+    {
+        _categoryIndex = Random.Range(0, _questions.Categories.Count);
+
+        var category = _questions.Categories[_categoryIndex];
+
+        _questionIndex = Random.Range(0, category.categoryDataList.Count);
+
+        var data = category.categoryDataList[_questionIndex];
+       
+        return data;
+    }
+
 }

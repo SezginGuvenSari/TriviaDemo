@@ -12,4 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d6babb0353c34c49bf415d2b025da80, type: 3}
   m_Name: general-culture
   m_EditorClassIdentifier: 
-  categoryDataList: []
+  categoryDataList:
+  - category: general-culture
+    question: "Hangisi T\xFCrkiye'nin ba\u015Fkenti de\u011Fildir?"
+    choices:
+    - "A) \u0130stanbul"
+    - B) Ankara
+    - "C) \u0130zmir"
+    - "D) \nBursa"
+    answer: C
+    isCompleted: 0
+  - category: general-culture
+    question: "Hangisi T\xFCrkiye'nin ba\u015Fkenti de\u011Fildir?"
+    choices:
+    - "A) \u0130stanbul"
+    - B) Ankara
+    - "C) \u0130zmir"
+    - "D) \nBursa"
+    answer: C
+    isCompleted: 0
+  - category: general-culture
+    question: "Hangisi T\xFCrkiye'nin ba\u015Fkenti de\u011Fildir?"
+    choices:
+    - "A) \u0130stanbul"
+    - B) Ankara
+    - "C) \u0130zmir"
+    - "D) \nBursa"
+    answer: C
+    isCompleted: 0

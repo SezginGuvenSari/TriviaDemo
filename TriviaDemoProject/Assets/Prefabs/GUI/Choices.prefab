@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8912719030216313707}
   - component: {fileID: 8912719030216313706}
   - component: {fileID: 8912719030216313705}
+  - component: {fileID: 8466110327069191405}
   m_Layer: 5
   m_Name: B
   m_TagString: Untagged
@@ -37,7 +38,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 140}
+  m_AnchoredPosition: {x: 0, y: 146}
   m_SizeDelta: {x: 1332, y: 532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8912719030216313707
@@ -121,7 +122,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8912719030216313706}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8466110327069191405}
+        m_TargetAssemblyTypeName: AnswerController, Assembly-CSharp
+        m_MethodName: AnswerControl
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8466110327069191405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8912719030216313719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784579162fcf16649bda40b84be90bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _answerType: 1
 --- !u!1 &8912719030260290297
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,6 +160,7 @@ GameObject:
   - component: {fileID: 8912719030260290301}
   - component: {fileID: 8912719030260290300}
   - component: {fileID: 8912719030260290299}
+  - component: {fileID: 804919771530766004}
   m_Layer: 5
   m_Name: C
   m_TagString: Untagged
@@ -159,7 +186,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -140}
+  m_AnchoredPosition: {x: 0, y: -134}
   m_SizeDelta: {x: 1332, y: 532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8912719030260290301
@@ -243,7 +270,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8912719030260290300}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 804919771530766004}
+        m_TargetAssemblyTypeName: AnswerController, Assembly-CSharp
+        m_MethodName: AnswerControl
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &804919771530766004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8912719030260290297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784579162fcf16649bda40b84be90bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _answerType: 2
 --- !u!1 &8912719030519579988
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +362,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ISTANBUL
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: de5ae2e39a0684642899dbf33cdef848, type: 2}
   m_sharedMaterial: {fileID: -8017391518068279637, guid: de5ae2e39a0684642899dbf33cdef848, type: 2}
@@ -337,8 +389,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 120
-  m_fontSizeBase: 120
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -445,7 +497,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ISTANBUL
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: de5ae2e39a0684642899dbf33cdef848, type: 2}
   m_sharedMaterial: {fileID: -8017391518068279637, guid: de5ae2e39a0684642899dbf33cdef848, type: 2}
@@ -472,8 +524,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 120
-  m_fontSizeBase: 120
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -580,7 +632,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ISTANBUL
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: de5ae2e39a0684642899dbf33cdef848, type: 2}
   m_sharedMaterial: {fileID: -8017391518068279637, guid: de5ae2e39a0684642899dbf33cdef848, type: 2}
@@ -607,8 +659,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 120
-  m_fontSizeBase: 120
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -661,6 +713,7 @@ GameObject:
   - component: {fileID: 8912719030983798118}
   - component: {fileID: 8912719030983798117}
   - component: {fileID: 8912719030983798116}
+  - component: {fileID: 3625819198361038861}
   m_Layer: 5
   m_Name: A
   m_TagString: Untagged
@@ -686,7 +739,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 420}
+  m_AnchoredPosition: {x: 0, y: 426}
   m_SizeDelta: {x: 1332, y: 532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8912719030983798118
@@ -770,7 +823,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8912719030983798117}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3625819198361038861}
+        m_TargetAssemblyTypeName: AnswerController, Assembly-CSharp
+        m_MethodName: AnswerControl
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3625819198361038861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8912719030983798114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784579162fcf16649bda40b84be90bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _answerType: 0
 --- !u!1 &8912719031187144457
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,6 +901,7 @@ GameObject:
   - component: {fileID: 8912719031533825549}
   - component: {fileID: 8912719031533825548}
   - component: {fileID: 8912719031533825547}
+  - component: {fileID: 7417935848119753645}
   m_Layer: 5
   m_Name: D
   m_TagString: Untagged
@@ -848,7 +927,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -420}
+  m_AnchoredPosition: {x: 0, y: -413.99994}
   m_SizeDelta: {x: 1332, y: 532}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8912719031533825549
@@ -932,7 +1011,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8912719031533825548}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7417935848119753645}
+        m_TargetAssemblyTypeName: AnswerController, Assembly-CSharp
+        m_MethodName: AnswerControl
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7417935848119753645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8912719031533825545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784579162fcf16649bda40b84be90bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _answerType: 3
 --- !u!1 &8912719031930592795
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,7 +1103,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ISTANBUL
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: de5ae2e39a0684642899dbf33cdef848, type: 2}
   m_sharedMaterial: {fileID: -8017391518068279637, guid: de5ae2e39a0684642899dbf33cdef848, type: 2}
@@ -1026,8 +1130,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 120
-  m_fontSizeBase: 120
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
