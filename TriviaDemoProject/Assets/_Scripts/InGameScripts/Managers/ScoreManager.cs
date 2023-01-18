@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 using TMPro;
@@ -22,10 +23,7 @@ public class ScoreManager : MonoBehaviour
     [Tooltip("It shows how many scores you will lose when you have no  time left.")]
     [SerializeField] [Range(1, 20)] private int _timeLatenessValue;
 
-
-
     #endregion
-
 
     #region OnEnable & OnDisable
 
@@ -43,35 +41,54 @@ public class ScoreManager : MonoBehaviour
         EventManager.OnTimeLatenessDecreaseScore -= TimeLatenessDecreaseScore;
     }
 
+    #endregion
+
+    #region Awake
+
+    private void Awake() => _scoreText.text = _playerData.TotalScore.ToString();
 
     #endregion
 
-    private void Awake() => _scoreText.text = _playerData.TotalScore.ToString();
-    private void CorrectIncrementalScore()
+    #region Async Methods
+    private async Task CorrectIncrementalScore()
     {
         var result = _playerData.TotalScore + _correctValue;
         ScoreAnimation(result);
+        await Task.Delay(2000);
     }
 
-    private void WrongDecreaseScore()
+    private async Task WrongDecreaseScore()
     {
         var result = _playerData.TotalScore - _wrongValue;
         ScoreAnimation(result);
+        await Task.Delay(2000);
     }
 
-    private void TimeLatenessDecreaseScore()
+    private async Task TimeLatenessDecreaseScore()
     {
         var result = _playerData.TotalScore - _timeLatenessValue;
         ScoreAnimation(result);
+        await Task.Delay(2000);
     }
 
-    private void ScoreAnimation(int result)
+    #endregion
+
+    #region AnimationMethod
+
+    private  void ScoreAnimation(int result)
     {
         if (result < 0) return;
-        DOTween.To(() => _playerData.TotalScore, x => _playerData.TotalScore = x, result, 1f).OnUpdate(() =>
+        DOTween.To(() => _playerData.TotalScore, x => _playerData.TotalScore = x, result, 1.5f).SetEase(Ease.InOutExpo).OnUpdate(() =>
         {
             _scoreText.text = _playerData.TotalScore.ToString();
+            
+        }).OnComplete(() =>
+        {
+            _playerData.TotalScore = result;
+           
         });
     }
+
+    #endregion
 
 }

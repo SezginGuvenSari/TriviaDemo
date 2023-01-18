@@ -30,4 +30,4 @@ MonoBehaviour:
     - C) Metallica
     - "D) \nTarkan"
     answer: D
-    isCompleted: 1
+    isCompleted: 0

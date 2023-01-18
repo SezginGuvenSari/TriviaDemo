@@ -28,22 +28,21 @@ public class HttpClient
     {
         try
         {
-            using var www = UnityWebRequest.Get(url);
-            www.SetRequestHeader(_contentType, _iSerializationOption.ContentType);
+            using var webRequest = UnityWebRequest.Get(url);
+            webRequest.SetRequestHeader(_contentType, _iSerializationOption.ContentType);
 
-            var operation = www.SendWebRequest();
+            var operation = webRequest.SendWebRequest();
 
             while (!operation.isDone)
             {
                 await Task.Yield();
             }
 
-            if (www.result != UnityWebRequest.Result.Success)
+            if (webRequest.result != UnityWebRequest.Result.Success)
             {
-                Debug.LogError("Failed" + www.error);
+                Debug.LogError("Failed" + webRequest.error);
             }
-            var result = _iSerializationOption.Deserialize<TResultType>(www.downloadHandler.text);
-            Console.WriteLine($"Success: {www.downloadHandler.text}");
+            var result = _iSerializationOption.Deserialize<TResultType>(webRequest.downloadHandler.text);
             return result;
         }
         catch (Exception e)

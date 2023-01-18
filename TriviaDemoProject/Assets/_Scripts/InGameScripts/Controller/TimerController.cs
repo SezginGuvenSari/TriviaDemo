@@ -42,8 +42,11 @@ public class TimerController : MonoBehaviour
     }
 
     #endregion
-
-    void Update() => StartTimer();
+    private void Update()
+    {
+        StartTimer();
+       CheckTimer();
+    }
 
     private void StartTimer()
     {
@@ -54,27 +57,27 @@ public class TimerController : MonoBehaviour
 
         }
     }
-    private void OnGUI()
+
+    private void CheckTimer()
     {
         if (_timeOut != false) return;
 
         if (_timeLeft > 0)
         {
-            _timerText.text = _timeLeft.ToString("0");
+            if (_timerText != null) _timerText.text = _timeLeft.ToString("0");
         }
         else
         {
             _stopTimer = true;
             _timeOut = true;
+            GameManager.Instance.TimeOverAsync();
         }
-
     }
     private void StopTimer() => _stopTimer = true;
-
     private void ResetRemainingTime()
     {
         _timeLeft = _currentTime;
         _stopTimer = false;
+        _timeOut = false;
     }
-
 }

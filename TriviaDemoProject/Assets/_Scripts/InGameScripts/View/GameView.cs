@@ -8,14 +8,15 @@ using UnityEngine.UI;
 
 public class GameView : MonoBehaviour
 {
-
     #region Serialize
 
     [SerializeField] private TMP_Text _questionText;
 
     [SerializeField] private List<TMP_Text> _choices;
 
-    [SerializeField] private Transform _parentChoices;
+    [SerializeField] private Transform _choicesTransform;
+
+    [SerializeField] private Transform _finishPanel;
 
     #endregion
 
@@ -39,12 +40,13 @@ public class GameView : MonoBehaviour
 
     #endregion
 
-    private void Start() => SetQuestionData();
+    #region Methods
 
+    private void Start() => SetQuestionData();
     public void SetQuestionData()
     {
+        CheckGameFinish();
         if (GameManager.Instance.IsQuestionsCompleted()) return;
-
         var data = GameManager.Instance.GetCurrentQuestion();
         if (!data.isCompleted)
         {
@@ -53,7 +55,6 @@ public class GameView : MonoBehaviour
         }
         else SetQuestionData();
     }
-
     private void SetChoicesData(Questions.QuestionData data)
     {
         for (var i = 0; i < _choices.Count; i++)
@@ -62,10 +63,9 @@ public class GameView : MonoBehaviour
             _choices[i].text = newDataText;
         }
     }
-
     private void DisableChoices()
     {
-        foreach (Transform choices in _parentChoices)
+        foreach (Transform choices in _choicesTransform)
         {
             var isClick = choices.GetComponent<AnswerController>().IsClick;
             var button = choices.GetComponent<Button>();
@@ -75,8 +75,9 @@ public class GameView : MonoBehaviour
 
     private void EnableChoices()
     {
-        foreach (Transform choices in _parentChoices)
+        foreach (Transform choices in _choicesTransform)
         {
+            choices.GetComponent<AnswerController>().IsClick = false;
             var button = choices.GetComponent<Button>();
             var image = choices.GetComponent<Image>();
             image.color = Color.white;
@@ -97,6 +98,15 @@ public class GameView : MonoBehaviour
                 });
             });
         });
-        await Task.Delay(3000);
+        await Task.Delay(1000);
     }
+    private void CheckGameFinish()
+    {
+        if (!GameManager.Instance.IsQuestionsCompleted()) return;
+        _finishPanel.gameObject.SetActive(true);
+        _finishPanel.DOLocalMoveX(0, 0.5f).SetEase(Ease.InCubic);
+    }
+
+    #endregion
+
 }

@@ -22,6 +22,8 @@ public class LeaderboardController : MonoBehaviour
 
     #endregion
 
+    #region Methods
+
     private void SetLeaderboardData(bool isDone, LeaderboardPages[] pages)
     {
         if (!isDone) return;
@@ -60,5 +62,7 @@ public class LeaderboardController : MonoBehaviour
         }
         return _listData;
     }
+
+    #endregion
 
 }

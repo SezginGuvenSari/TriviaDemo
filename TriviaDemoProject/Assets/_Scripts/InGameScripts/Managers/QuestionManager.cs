@@ -38,7 +38,7 @@ public class QuestionManager : MonoBehaviour
 
     #endregion
 
-    private async void Start() => GetQuestions();
+    private void Start() => GetQuestions();
 
     private async void GetQuestions()
     {
@@ -49,7 +49,7 @@ public class QuestionManager : MonoBehaviour
         SetDataByCategory();
     }
 
-    private void SetDataByCategory()
+    public void SetDataByCategory()
     {
         ClearCategoryDataList();
         for (var i = 0; i < _questions.questions.Count; i++)
@@ -81,7 +81,7 @@ public class QuestionManager : MonoBehaviour
         _questionIndex = Random.Range(0, category.categoryDataList.Count);
 
         var data = category.categoryDataList[_questionIndex];
-       
+
         return data;
     }
 

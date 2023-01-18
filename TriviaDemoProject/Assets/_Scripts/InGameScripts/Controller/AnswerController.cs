@@ -19,7 +19,6 @@ public class AnswerController : MonoBehaviour
 
     #endregion
 
-
     #region Properties
 
     public bool IsClick
@@ -39,14 +38,13 @@ public class AnswerController : MonoBehaviour
         var answer = GameManager.Instance.CurrentQuestionData.answer;
         if (_answerType.ToString() == answer)
         {
-            print("Correct Answer");
-            GameManager.Instance.CorrectAnswerAysnc();
             SetAnswerButtonColor(_image, Color.green);
+            GameManager.Instance.CorrectAnswerAsync();
         }
         else
         {
-            print("Wrong Answer");
             SetAnswerButtonColor(_image, Color.red);
+            GameManager.Instance.WrongAnswerAsync();
         }
 
     }

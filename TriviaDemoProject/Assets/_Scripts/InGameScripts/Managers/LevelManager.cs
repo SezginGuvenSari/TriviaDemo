@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoSingleton<LevelManager>
 {
+    #region Methods
     public void LoadNextLevel()
     {
         var currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -18,4 +19,7 @@ public class LevelManager : MonoSingleton<LevelManager>
     }
 
     public void GameQuit() => Application.Quit();
+
+    #endregion
+
 }

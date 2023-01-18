@@ -58,7 +58,6 @@ public class EventManager
         return OnSelectRandomQuestion.Invoke();
     }
 
-
     #endregion
 
 
@@ -85,29 +84,29 @@ public class EventManager
 
     #region ScoreEvents
 
-    public delegate void CorrectIncrementalScore();
+    public delegate Task CorrectIncrementalScore();
     public static event CorrectIncrementalScore OnCorrectIncrementalScore;
-    public static void CorrectIncrementalScoreMethod()
+    public static Task CorrectIncrementalScoreMethod()
     {
-        OnCorrectIncrementalScore?.Invoke();
+        return OnCorrectIncrementalScore?.Invoke();
     }
 
     //***********************************************************//
 
-    public delegate void WrongDecreaseScore();
+    public delegate Task WrongDecreaseScore();
     public static event WrongDecreaseScore OnWrongDecreaseScore;
-    public static void WrongDecreaseScoreMethod()
+    public static Task WrongDecreaseScoreMethod()
     {
-        OnWrongDecreaseScore?.Invoke();
+        return OnWrongDecreaseScore?.Invoke();
     }
 
     //***********************************************************//
 
-    public delegate void TimeLatenessDecreaseScore();
+    public delegate Task TimeLatenessDecreaseScore();
     public static event TimeLatenessDecreaseScore OnTimeLatenessDecreaseScore;
-    public static void TimeLatenessDecreaseScoreMethod()
+    public static Task TimeLatenessDecreaseScoreMethod()
     {
-        OnTimeLatenessDecreaseScore?.Invoke();
+        return OnTimeLatenessDecreaseScore?.Invoke();
     }
     #endregion
 
@@ -147,5 +146,16 @@ public class EventManager
     {
         return OnAnimationTextAsync?.Invoke(text);
     }
+    #endregion
+
+    #region DiamondsEvent
+
+    public delegate void PileOfDiamonds();
+    public static event PileOfDiamonds OnPileOfDiamonds;
+    public static void PileOfDiamondsMethod()
+    {
+        OnPileOfDiamonds?.Invoke();
+    }
+
     #endregion
 }

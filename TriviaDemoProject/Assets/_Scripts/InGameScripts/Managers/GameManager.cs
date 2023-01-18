@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
 {
-
     #region References
 
     private Questions.QuestionData _currentQuestionData;
@@ -19,6 +19,8 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] private Transform _correctText;
 
     [SerializeField] private Transform _wrongText;
+
+    [SerializeField] private Transform _timeOverText;
 
     [SerializeField] private QuestionManager _questionManager;
 
@@ -34,6 +36,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     #endregion
 
+    #region Methods
 
     public bool IsQuestionsCompleted()
     {
@@ -49,32 +52,49 @@ public class GameManager : MonoSingleton<GameManager>
         }
         return true;
     }
-
     public Questions.QuestionData GetCurrentQuestion()
     {
         _currentQuestionData = EventManager.SelectRandomQuestionMethod();
         return _currentQuestionData;
     }
-
-
-    public async void CorrectAnswerAysnc()
+    public async void CorrectAnswerAsync()
     {
-       
         CompletedQuestion();
         EventManager.StopTimerMethod();
-        await EventManager.AnimationTextAsyncMethod(_correctText);
-        EventManager.CorrectIncrementalScoreMethod();
-        EventManager.SetQuestionDataMethod();
+        var correctTaskGroup = await EventManager.AnimationTextAsyncMethod(_correctText).ContinueWith
+            (async _ =>
+            {
+                await EventManager.CorrectIncrementalScoreMethod();
+            });
+        EventManager.PileOfDiamondsMethod();
+        await Task.WhenAll(correctTaskGroup);
         EventManager.EnableChoicesMethod();
+        EventManager.SetQuestionDataMethod();
         EventManager.ResetRemainingTimeMethod();
 
     }
-
-    public void WrongAnswer()
+    public async void WrongAnswerAsync()
     {
-
+        EventManager.StopTimerMethod();
+        var wrongTaskGroup = await EventManager.AnimationTextAsyncMethod(_wrongText).ContinueWith(async _ =>
+        {
+            await EventManager.WrongDecreaseScoreMethod();
+        });
+        await Task.WhenAll(wrongTaskGroup);
+        EventManager.EnableChoicesMethod();
+        EventManager.ResetRemainingTimeMethod();
     }
-
+    public async void TimeOverAsync()
+    {
+        var timeOverTaskGroup =
+            await EventManager.AnimationTextAsyncMethod(_timeOverText).ContinueWith(async _questions =>
+            {
+                await EventManager.TimeLatenessDecreaseScoreMethod();
+            });
+        await Task.WhenAll(timeOverTaskGroup);
+        EventManager.EnableChoicesMethod();
+        EventManager.ResetRemainingTimeMethod();
+    }
     private void CompletedQuestion()
     {
         var categoryIndex = _questionManager.CategoryIndex;
@@ -82,4 +102,7 @@ public class GameManager : MonoSingleton<GameManager>
         _currentQuestionData.isCompleted = true;
         _questions.Categories[categoryIndex].categoryDataList[questionIndex] = _currentQuestionData;
     }
+
+    #endregion
+
 }

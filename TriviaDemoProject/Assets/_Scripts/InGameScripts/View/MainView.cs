@@ -16,6 +16,8 @@ public class MainView : MonoBehaviour
 
     #endregion
 
+    #region Methods
+
     public void EnableLbPanel()
     {
         _previousLbPos = _leaderboardPanel.transform.localPosition;
@@ -30,6 +32,8 @@ public class MainView : MonoBehaviour
     }
 
     private void IsActive(GameObject obj, bool on) => obj.SetActive(on);
+
+    #endregion
 
 }
 
