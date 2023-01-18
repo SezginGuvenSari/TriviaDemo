@@ -88,11 +88,11 @@ public class GameView : MonoBehaviour
     private async Task AnimationTextAsync(Transform text)
     {
         var currentPos = text.position;
-        text.DOScale(Vector3.one, 0.2f).SetEase(Ease.InOutBounce).OnComplete(() =>
+        text.DOScale(Vector3.one, 0.1f).OnComplete(() =>
         {
-            text.DOLocalMoveY(200f, 1f).SetEase(Ease.InOutBounce).OnComplete(() =>
+            text.DOLocalMoveY(200f, 1f).SetEase(Ease.InOutCubic).OnComplete(() =>
             {
-                text.DOScale(Vector3.zero, 0.2f).SetEase(Ease.InCubic).OnComplete(() =>
+                text.DOScale(Vector3.zero, 0.2f).SetEase(Ease.InOutBounce).OnComplete(() =>
                 {
                     text.position = currentPos;
                 });

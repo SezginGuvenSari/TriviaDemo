@@ -75,6 +75,8 @@ public class LeaderboardManager : MonoBehaviour
         _pages[1].data.Add(_myData);
     }
 
+    public void ClearPlayerScore() => _playerData.TotalScore = 0;
+
     #endregion
 
 }
