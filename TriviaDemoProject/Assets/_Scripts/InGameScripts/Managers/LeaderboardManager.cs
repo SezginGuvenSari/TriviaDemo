@@ -15,10 +15,13 @@ public class LeaderboardManager : MonoBehaviour
 
     #region Serialize
 
+    [Tooltip("If we have how many pages, we enter that number here.")]
     [SerializeField] [Range(1, 10)] private int _pageNumber;
 
+    [Tooltip("Checks if the web request has been made.")]
     [SerializeField] private bool _isDone = false;
 
+    [Tooltip("You can set playerData scriptable object.")]
     [SerializeField] private PlayerData _playerData;
 
     #endregion
@@ -47,8 +50,6 @@ public class LeaderboardManager : MonoBehaviour
         EventManager.GetEnableObjectsMethod(GetDataLength());
         EventManager.SetLeaderboardDataMethod(_isDone, _pages);
     }
-
-    private LeaderboardPages[] GetPage() => !_isDone ? null : _pages;
 
     private int GetDataLength()
     {

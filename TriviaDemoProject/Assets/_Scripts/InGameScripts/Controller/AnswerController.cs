@@ -29,6 +29,8 @@ public class AnswerController : MonoBehaviour
 
     #endregion
 
+    #region Methods
+
     private void Awake() => _image = GetComponent<Image>();
 
     public void AnswerControl()
@@ -50,5 +52,7 @@ public class AnswerController : MonoBehaviour
     }
 
     private void SetAnswerButtonColor(Image image, Color color) => image.color = color;
+
+    #endregion
 
 }

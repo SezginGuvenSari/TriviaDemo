@@ -10,13 +10,16 @@ public class PoolManager : MonoBehaviour
     [System.Serializable]
     public struct Pool
     {
+        
         public Queue<GameObject> _pool;
 
-        public GameObject _dataPrefab;
+        public GameObject DataPrefab;
 
-        public int _poolSize;
+        [Tooltip("You can specify the size of the pool you want.")]
+        public int PoolSize;
 
-        public Transform _dataT;
+        [Tooltip("Where the data will be generated.")]
+        public Transform DataT;
 
     }
 
@@ -44,6 +47,8 @@ public class PoolManager : MonoBehaviour
 
     #endregion
 
+    #region Methods
+
     private void Awake() => PopulatePool();
 
     private void PopulatePool()
@@ -51,9 +56,9 @@ public class PoolManager : MonoBehaviour
         for (int j = 0; j < _pools.Length; j++)
         {
             _pools[j]._pool = new Queue<GameObject>();
-            for (int i = 0; i < _pools[j]._poolSize; i++)
+            for (int i = 0; i < _pools[j].PoolSize; i++)
             {
-                GameObject obj = Instantiate(_pools[j]._dataPrefab, _pools[j]._dataT);
+                GameObject obj = Instantiate(_pools[j].DataPrefab, _pools[j].DataT);
                 obj.SetActive(false);
                 _pools[j]._pool.Enqueue(obj);
             }
@@ -77,5 +82,7 @@ public class PoolManager : MonoBehaviour
             GetPooledObject(0);
         }
     }
+
+    #endregion
 
 }

@@ -20,6 +20,8 @@ public class LevelManager : MonoSingleton<LevelManager>
 
     public void GameQuit() => Application.Quit();
 
+    private void Awake() => Application.targetFrameRate = 60;
+
     #endregion
 
 }

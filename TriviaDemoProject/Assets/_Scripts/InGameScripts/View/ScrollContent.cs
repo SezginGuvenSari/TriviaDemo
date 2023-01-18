@@ -16,10 +16,13 @@ public class ScrollContent : MonoBehaviour
 
     [SerializeField] private RectTransform _rectTransform;
 
+    [Tooltip("You can adjust the curve as you want and adjust the enlargement and shrinkage of the data. ")]
     [SerializeField] private AnimationCurve _resizeRatio;
 
     #endregion
-    void Start() => Initialize();
+
+    #region Methods
+    private void Start() => Initialize();
     private void Initialize()
     {
         _resizeCenter = _rectTransform.position;
@@ -36,4 +39,7 @@ public class ScrollContent : MonoBehaviour
         }
     }
     private void VisibleAreaWidthCalculator() => _areaWidth = _rectTransform.rect.height;
+
+    #endregion
+
 }

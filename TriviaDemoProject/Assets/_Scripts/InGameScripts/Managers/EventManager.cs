@@ -30,14 +30,6 @@ public class EventManager
 
     #region LeaderBoard Events
 
-    public delegate LeaderboardPages[] GetPage();
-    public static event GetPage OnGetPage;
-    public static LeaderboardPages[] GetPageMethod()
-    {
-        return OnGetPage?.Invoke();
-    }
-
-    //***********************************************************//
 
     public delegate void SetLeaderboardData(bool isDone, LeaderboardPages[] pages);
     public static event SetLeaderboardData OnSetLeaderboardData;
